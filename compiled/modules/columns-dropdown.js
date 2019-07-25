@@ -34,6 +34,37 @@ module.exports = function (h) {
             ));
         });
 
+        cols.unshift(dropdownItemWrapper(h, classes, h('a', {
+                'class': classes.dropdown.item,
+                attrs: {
+                    href: '#'
+                },
+                on: {
+                    'click': function () {
+                        if (_this.allColumns.length === _this.columns.length) {
+                            for (var i = 1; i < _this.columns.length; i++) { // keep first column
+                                _this.toggleColumn(_this.columns[i]);
+                            }
+                        } else {
+                            for (var i in _this.columns) {
+                                if (!_this.allColumns.includes(_this.columns[i])) {
+                                    _this.toggleColumn(_this.columns[i]);
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            [h('input', {
+                attrs: {
+                    type: 'checkbox',
+                },
+                domProps: {
+                    'checked': _this.allColumns.length === _this.columns.length
+                }
+            }), _this.opts.texts.selectAllColumns]
+        )));
+
         return h(
             'div',
             {
