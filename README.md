@@ -1,6 +1,10 @@
-# Vue Tables 2
+Vue Tables 2
+============
 
-[![npm version](https://badge.fury.io/js/vue-tables-2.svg)](https://badge.fury.io/js/vue-tables-2) [![GitHub stars](https://img.shields.io/github/stars/matfish2/vue-tables-2.svg)](https://github.com/matfish2/vue-tables-2/stargazers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/matfish2/vue-tables-2/master/LICENSE) [![npm](https://img.shields.io/npm/dt/vue-tables-2.svg)](https://www.npmjs.com/package/vue-tables-2) [![Build Status](https://travis-ci.org/matfish2/vue-tables-2.svg?branch=master)](https://travis-ci.org/matfish2/vue-tables-2) [![](https://data.jsdelivr.com/v1/package/npm/vue-tables-2/badge)](https://www.jsdelivr.com/package/npm/vue-tables-2) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/vue-tables-2/Lobby)
+[![npm version](https://badge.fury.io/js/%40vue-module%2Fvue-tables-2.svg)](https://badge.fury.io/js/%40vue-module%2Fvue-tables-2)
+[![GitHub stars](https://img.shields.io/github/stars/mgid/vue-tables-2.svg)](https://github.com/mgid/vue-tables-2/stargazers)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mgid/vue-tables-2/master/LICENSE)
+[![](https://data.jsdelivr.com/v1/package/npm/vue-tables-2/badge)](https://www.jsdelivr.com/package/npm/vue-tables-2)
 
 [Click here](https://jsfiddle.net/matfish2/jfa5t4sm/) to see the client component in action and fiddle with the various [options](#options)
 or [here](https://jsfiddle.net/matfish2/js4bmdbL/) for a rudimentary server component demo
@@ -820,7 +824,3 @@ templates | Object | See [documentation](#templates) | {}
 texts | Object | see the `texts` object in [defaults.js](https://github.com/matfish2/vue-tables-2/blob/master/lib/config/defaults.js)</code>
 toMomentFormat (client-side) | String | transform date columns string values to momentjs objects using this format. If this option is not used the consumer is expected to pass momentjs objects himself | `false`
 uniqueKey | String | The key of a unique identifier in your dataset, used to track the child rows, and return the original row in row click event | `id`
-
-# VueJS 1
-
-Users of VueJS 1 should use [this package](https://github.com/matfish2/vue-tables) .
