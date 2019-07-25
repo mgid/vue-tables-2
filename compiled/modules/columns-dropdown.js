@@ -7,12 +7,13 @@ module.exports = function (h) {
     var _this = this;
 
     return function (classes) {
-
         var cols = _this.columns.map(function (column) {
-            return dropdownItemWrapper(h, classes, h(
-                'a',
-                { 'class': classes.dropdown.item,
-                    attrs: { href: '#'
+            var hiddenClassName = _this.opts.hiddenColumns.includes(column) ? classes.columns.hidden : '';
+
+            return dropdownItemWrapper(h, classes, h('a', {
+                    'class': classes.dropdown.item + ' ' + hiddenClassName,
+                    attrs: {
+                        href: '#'
                     },
                     on: {
                         'click': function click() {
@@ -21,7 +22,8 @@ module.exports = function (h) {
                     }
                 },
                 [h('input', {
-                    attrs: { type: 'checkbox',
+                    attrs: {
+                        type: 'checkbox',
                         disabled: _this._onlyColumn(column)
                     },
                     domProps: {
@@ -34,7 +36,10 @@ module.exports = function (h) {
 
         return h(
             'div',
-            { ref: 'columnsdropdown', 'class': classes.dropdown.container + ' ' + classes.right + ' VueTables__columns-dropdown' },
+            {
+                ref: 'columnsdropdown',
+                'class': classes.dropdown.container + ' ' + classes.right + ' VueTables__columns-dropdown'
+            },
             [h(
                 'button',
                 {

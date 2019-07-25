@@ -4,15 +4,7 @@ module.exports = function (column) {
     var _this = this;
 
     if (!this.userControlsColumns) {
-        var columns = JSON.parse(JSON.stringify(this.allColumns));
-
-        if (this.opts.hiddenColumns.length) {
-            columns = columns.filter(function (columnName) {
-                return !this.opts.hiddenColumns.includes(columnName);
-            });
-        }
-
-        this.userColumnsDisplay = columns;
+        this.userColumnsDisplay = JSON.parse(JSON.stringify(this.allColumns));
         this.userControlsColumns = true;
     }
 

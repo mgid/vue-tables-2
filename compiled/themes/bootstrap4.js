@@ -38,6 +38,9 @@ module.exports = function () {
             prev: '',
             active: 'active',
             disabled: 'disabled'
+        },
+        columns: {
+            hidden: 'columns-dropdown-hidden'
         }
     };
 };

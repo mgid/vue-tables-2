@@ -39,6 +39,9 @@ module.exports = function () {
             prev: '',
             active: 'is-current',
             disabled: ''
+        },
+        columns: {
+            hidden: 'columns-dropdown-hidden'
         }
     };
 };
