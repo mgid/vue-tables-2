@@ -6,9 +6,6 @@ Vue Tables 2
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mgid/vue-tables-2/master/LICENSE)
 [![](https://data.jsdelivr.com/v1/package/npm/vue-tables-2/badge)](https://www.jsdelivr.com/package/npm/vue-tables-2)
 
-[Click here](https://jsfiddle.net/matfish2/jfa5t4sm/) to see the client component in action and fiddle with the various [options](#options)
-or [here](https://jsfiddle.net/matfish2/js4bmdbL/) for a rudimentary server component demo
-
 - [Usage](#usage)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
@@ -243,7 +240,7 @@ Note: when using a custom request function, the `url` prop is not required.
 
 ### Implementations
 
-I have included [an Eloquent implementation](https://raw.githubusercontent.com/matfish2/vue-tables-2/master/server/PHP/EloquentVueTables.php) for Laravel Users.
+I have included [an Eloquent implementation](https://raw.githubusercontent.com/mgid/vue-tables-2/master/server/PHP/EloquentVueTables.php) for Laravel Users.
 
 If you happen to write other implementations for PHP or other languages, a pull request would be most welcome, under the following guidelines:
 
@@ -821,6 +818,8 @@ sortable | Array |  Sortable columns | All columns
 sortingAlgorithm | Function | define your own sorting algorithm  | `function (data, column) { return data.sort(this.getSortFn(column));}`
 storage | String | Which persistance mechanism should be used when saveState is set to true: `local` - localStorage. `session` - sessionStorage | `local`
 templates | Object | See [documentation](#templates) | {}
-texts | Object | see the `texts` object in [defaults.js](https://github.com/matfish2/vue-tables-2/blob/master/lib/config/defaults.js)</code>
+texts | Object | see the `texts` object in [defaults.js](https://github.com/mgid/vue-tables-2/blob/master/lib/config/defaults.js)</code>
 toMomentFormat (client-side) | String | transform date columns string values to momentjs objects using this format. If this option is not used the consumer is expected to pass momentjs objects himself | `false`
 uniqueKey | String | The key of a unique identifier in your dataset, used to track the child rows, and return the original row in row click event | `id`
+selectAllColumns | Boolean | Ability to select/remove all columns in the list of displayed columns | true
+hiddenColumns | Array | List of columns that will be hidden during initialization | []

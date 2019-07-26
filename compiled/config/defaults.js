@@ -31,6 +31,7 @@ module.exports = function () {
         skin: false,
         columnsDisplay: {},
         columnsDropdown: false,
+        selectAllColumns: true,
         hiddenColumns: [],
         texts: {
             count: "Showing {from} to {to} of {count} records|{count} records|One record",
