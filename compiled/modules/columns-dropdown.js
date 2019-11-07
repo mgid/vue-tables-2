@@ -1,6 +1,7 @@
-'use strict';
+"use strict";
 
 var dropdownWrapper = require('./dropdown-wrapper');
+
 var dropdownItemWrapper = require('./dropdown-item-wrapper');
 
 module.exports = function (h) {
