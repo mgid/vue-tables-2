@@ -2,7 +2,7 @@ describe(suite + ': Columns Display', () => {
 
     var dropdown = '.VueTables__columns-dropdown';
 
-    beforeEach(() => {
+    beforeEach(()=>{
         setOptions({
             columnsDropdown: true
         });
@@ -23,7 +23,7 @@ describe(suite + ': Columns Display', () => {
         exists(dropdown);
     });
 
-    it('Toggles the dropdown', () => {
+    it('Toggles the dropdown', ()=>{
 
         expect(vm().displayColumnsDropdown).toBe(false);
 
@@ -34,7 +34,7 @@ describe(suite + ': Columns Display', () => {
     });
 
 
-    it('Checks all columns by default', () => {
+    it('Checks all columns by default', ()=>{
         var els = getCheckboxes();
 
         els.forEach(el => {
@@ -43,11 +43,11 @@ describe(suite + ': Columns Display', () => {
 
     });
 
-    it('can toggle columns', () => {
+    it('can toggle columns', ()=>{
         var els = getCheckboxes();
 
-        see('Code', 'table thead tr:first-child th:first-child');
-        count('table thead tr:first-child th', 3);
+        see('Code','table thead tr:first-child th:first-child');
+        count('table thead tr:first-child th',3);
 
         toggleColumn(1);
 
@@ -59,29 +59,29 @@ describe(suite + ': Columns Display', () => {
             expect(el.element.checked).toBe(true);
         });
 
-        not_see('Code', 'table thead tr:first-child th:first-child');
-        see('Name', 'table thead tr:first-child th:first-child');
-        count('table thead tr:first-child th', 2);
+        not_see('Code','table thead tr:first-child th:first-child');
+        see('Name','table thead tr:first-child th:first-child');
+        count('table thead tr:first-child th',2);
 
         toggleColumn(1);
 
-        see('Code', 'table thead tr:first-child th:first-child');
-        count('table thead tr:first-child th', 3);
+        see('Code','table thead tr:first-child th:first-child');
+        count('table thead tr:first-child th',3);
 
     });
 
-    it('When a column is hidden it does NOT pass the filter value to the next column (Regression test for #529)', (done) => {
+    it('When a column is hidden it does NOT pass the filter value to the next column (Regression test for #529)', (done)=>{
         createWrapper({
-            filterByColumn: true,
-            debounce: 0,
-            columnsDropdown: true
+            filterByColumn:true,
+            debounce:0,
+            columnsDropdown:true
         });
 
-        enterQuery('code', '[name=vf__code]', 'ZW', 'UI');
-        see('Code', 'table thead tr:first-child th:first-child');
+        enterQuery('code','[name=vf__code]', 'ZW','UI');
+        see('Code','table thead tr:first-child th:first-child');
         expect(wrapper.find('table thead tr:nth-child(2) th:first-child input').element.value).toEqual('ZW');
         toggleColumn(1);
-        vm().$nextTick(() => {
+        vm().$nextTick(()=>{
             expect(wrapper.find('table thead tr:nth-child(2) th:first-child input').element.name).toEqual('vf__name');
             expect(wrapper.find('table thead tr:nth-child(2) th:first-child input').element.value).not.toEqual('ZW');
             done();
@@ -101,10 +101,32 @@ describe(suite + ': Columns Display', () => {
 
         toggleColumn(3);
 
-        count('table thead tr:first-child th', 1);
+        count('table thead tr:first-child th',1);
 
     });
 
+    it('can hide some columns on init: whitelist', (done)=>{
+        setOptions({
+            visibleColumns:['code','name']
+        });
+
+        run(function() {
+            count('table tbody tr:first-child td', 2);
+        }, done);
+
+    });
+
+
+    it('can hide some columns on init: blacklist', (done)=>{
+        setOptions({
+            hiddenColumns:['code','name']
+        });
+
+        run(function() {
+            count('table tbody tr:first-child td', 1);
+        }, done);
+
+    });
 
 });
 
