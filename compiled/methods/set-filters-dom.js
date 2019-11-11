@@ -14,6 +14,8 @@ module.exports = function (query) {
           var start = typeof query[column].start === 'string' ? moment(query[column].start, 'YYYY-MM-DD') : query[column].start;
           var end = typeof query[column].end === 'string' ? moment(query[column].end, 'YYYY-MM-DD') : query[column].end;
 
+          this.initDateFilters();
+
           this._setDatepickerText(column, start, end);
         } else {
           $(this.$el).find("#VueTables__" + $.escapeSelector(column) + "-filter").html("<span class='VueTables__filter-placeholder'>" + this.display('filterBy', {
