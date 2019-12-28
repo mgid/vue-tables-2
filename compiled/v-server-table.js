@@ -66,17 +66,17 @@ exports.install = function (Vue, globalOptions, useVuex) {
         this.customQueries = this.initCustomFilters();
       }
 
+      if (this.hasDateFilters()) {
+        setTimeout(function () {
+          this.initDateFilters();
+        }.bind(this), 0);
+      }
+
       if (this.opts.sendInitialRequest) {
         this.loadState();
         this.getData(true).then(function (response) {
           this.setData(response);
           this.loading = false;
-
-          if (this.hasDateFilters()) {
-            setTimeout(function () {
-              this.initDateFilters();
-            }.bind(this), 0);
-          }
         }.bind(this));
       }
     },
