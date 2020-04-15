@@ -68,6 +68,8 @@ module.exports = function () {
       });
     });
     el.on('cancel.daterangepicker', function (ev, picker) {
+      var range = that._getInitialDateRange(column);
+
       if (range) {
         that._setDatepickerText(column, range.start, range.end);
 
