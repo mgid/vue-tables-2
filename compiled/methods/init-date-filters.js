@@ -68,14 +68,25 @@ module.exports = function () {
       });
     });
     el.on('cancel.daterangepicker', function (ev, picker) {
-      query[column] = '';
+      if (range) {
+        that._setDatepickerText(column, range.start, range.end);
+
+        query[column] = {
+          start: range.start.format('YYYY-MM-DD HH:mm:ss'),
+          end: range.end.format('YYYY-MM-DD HH:mm:ss')
+        };
+      } else {
+        query[column] = '';
+        picker.setStartDate(moment());
+        picker.setEndDate(moment());
+        $(this).html("<span class='VueTables__filter-placeholder'>" + that.display('filterBy', {
+          column: that.getHeading(column)
+        }) + "</span>");
+      }
+
       if (!that.vuex) that.query = query;
-      picker.setStartDate(moment());
-      picker.setEndDate(moment());
+
       that.updateState('query', query);
-      $(this).html("<span class='VueTables__filter-placeholder'>" + that.display('filterBy', {
-        column: that.getHeading(column)
-      }) + "</span>");
       search(query, {
         target: {
           name: that._getColumnName(column),
