@@ -16,6 +16,7 @@ module.exports = function (h, inputClass) {
         search.apply(void 0, arguments);
       } else {
         debouncedSearch.apply(void 0, arguments);
+        _this.query[e.target.name.slice(4)] = e.target.value;
       }
     };
   }
