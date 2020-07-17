@@ -15,7 +15,7 @@ module.exports = function (h, inputClass) {
         debouncedSearch.clear();
         search.apply(void 0, arguments);
       } else {
-        debouncedSearch.apply(void 0, arguments);
+        _this.updateQueryState(void 0, arguments, true)
       }
     };
   }

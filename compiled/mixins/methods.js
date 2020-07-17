@@ -40,6 +40,7 @@ module.exports = {
   getSortFn: require('../methods/get-sort-fn'),
   initState: require('../methods/init-state'),
   updateState: require('../methods/update-state'),
+  updateQueryState: require('../methods/update-query-state'),
   columnClass: require('../methods/column-class'),
   getName: require('../methods/get-name'),
   toggleColumn: require('../methods/toggle-column'),
