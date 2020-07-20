@@ -14,15 +14,18 @@ module.exports = function (h, inputClass) {
       if (e.keyCode === 13) {
         debouncedSearch.clear();
         search.apply(void 0, arguments);
-      } else {
-        _this.updateQueryState(void 0, arguments, true)
       }
+    };
+
+    var onChange = function onKeyUp(e) {
+        _this.updateQueryState(void 0, arguments, true)
     };
   }
 
   return function (column) {
     return h("input", {
       on: {
+        "change": _this.opts.debounce ? onChange : search,
         "keyup": _this.opts.debounce ? onKeyUp : search
       },
       "class": inputClass,
